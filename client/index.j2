@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114289987-X"></script>
+    <script>
+      var dntStatus = 0;
+      // Check for Do Not Track settings.
+      function dntCheck() {
+        if (navigator.doNotTrack == "1" || window.doNotTrack == "1") {
+          dntStatus = 1;
+        }
+      }
+      dntCheck();
+      if (dntStatus == 1) {
+        // console.log("Do Not Track setting enabled. No metrics will be collected for this user.");
+      } else {
+        // Prep gtag data.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('create', 'UA-114289987-X', {'cookieDomain': 'none'});
+        gtag('config', 'UA-114289987-X');
+      }
+    </script>
+  
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Workbench </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    
+    <link rel="icon" href="/cms/static/img/favicon.ico">
+    
+    <link rel="canonical" href="/workbench/dashboard">
+    <base href="/">
+    
+  <base href="/workbench/">
+
+    <!-- styles -->
+    <link id="css-site-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link id="css-site-header" rel="stylesheet" href="/cms/static/site_cms/css/build/site.header.css" />
+    <!-- Vendor CSS -->
+
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[0] %>">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[1] %>">
+
+    
+    <link id="css-portal-font" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link id="css-bootstrap" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="content">
+      
+
+
+
+<!-- Sponsor Logos -->
+
+
+
+
+
+<div id="header-branding" class="branding-header  ">
+  <!-- The header branding replaces this (from external markup). -->
+  
+</div>
+<script type="module">
+  import * as importHTML from '/cms/static/site_cms/js/modules/importHTML.js';
+
+  const placeholder = document.getElementById('header-branding');
+
+  importHTML.replaceFromURL('/cms/header/branding/markup/', placeholder);
+</script>
+
+
+<!-- Navigation Bar -->
+<nav id="s-header" class="s-header  navbar navbar-expand-xl navbar-dark">
+  <!-- Portal Logo -->
+  
+
+
+
+
+    <a id="header-logo" class="navbar-brand " href="/" target="">
+      <span style="font-size: xx-large;">Entrada</span>
+      </a>
+
+
+  <!-- Navbar Accordian Toggle on Small Screens  -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExpandTarget" aria-controls="navbarsExpandTarget" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar Links -->
+  <div class="collapse navbar-collapse" id="navbarsExpandTarget">
+    
+
+
+
+      
+
+
+
+
+<ul class="s-cms-nav  navbar-nav" id="s-cms-nav">
+
+  <!-- All top-level CMS controlled nav elements handled here. -->
+  
+
+</ul>
+<script type="module">
+  import flagLinkActive from '/cms/static/site_cms/js/modules/flagLinkActive.js';
+  import * as importHTML from '/cms/static/site_cms/js/modules/importHTML.js';
+
+  const container = document.getElementById('s-cms-nav');
+
+  importHTML.insertFromURL('/cms/nav/pages/markup/', container).then(container => {
+    flagLinkActive({
+      activeClassname: 'active',
+      linkSelector: 'a',
+      scopeElement: container,
+      ancestorActiveElementSelector: 'li'
+    });
+  });
+</script>
+
+
+      
+      
+
+
+
+
+
+<tacc-search-bar class="s-search-bar  form-inline  ml-auto" id="s-search-bar">
+  <!-- The search bar is populated here (from an external template). -->
+  
+</tacc-search-bar>
+
+<!-- Populate search field value from matching URL query parameter -->
+
+<script>
+  function populateSearchFieldValueFromURLParams() {
+    import('/cms/static/site_cms/js/modules/inputFieldValue.js').then((inputFieldValue) => {
+      const shadowRoot = document.getElementById('s-search-bar').shadowRoot;
+
+      inputFieldValue.update(shadowRoot, 'query_string');
+      inputFieldValue.updateOnEvent(shadowRoot, 'query_string', 'portal.search');
+    });
+  }
+</script>
+
+<script type="module">
+  import * as importHTML from '/cms/static/site_cms/js/modules/importHTML.js';
+  import * as registerCustomElement from '/cms/static/site_cms/js/modules/registerCustomElement.js';
+
+  importHTML.getFromURL('/cms/nav/search/markup/').then(markup => {
+    /* Load necessary Bootstrap outside raw markup so CMS */
+    /* FAQ: CMS, Portal, User Guide each use a different Bootstrap file */
+    /* TODO: After CMS redesign, use only one Bootstrap version (Portal's) */
+    markup = document.getElementById('css-bootstrap').outerHTML + markup;
+
+    registerCustomElement.fromHTMLString(markup, 'tacc-search-bar');
+
+    // Populate search field value
+    populateSearchFieldValueFromURLParams();
+  });
+</script>
+
+      
+      
+
+
+
+<ul class="s-portal-nav  navbar-nav">
+  
+<!-- FAQ: This template loads independently at a unique url (see `urls.py`)
+          so CMS and User Guide can render this markup into their markup. -->
+  
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-user-circle fa-lg nav-icon"></i>
+    <span>A_Turing</span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </a>
+  <nav class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="/workbench/dashboard">
+      <i class="fas fa-desktop nav-icon"></i> My Dashboard
+    </a>
+    
+    <a class="dropdown-item" href="/workbench/onboarding/admin">
+      <i class="fas fa-tasks nav-icon"></i> Onboarding Admin
+    </a>
+    
+    <a class="dropdown-item" href="/accounts/profile/">
+      <i class="fas fa-user-circle nav-icon"></i> My Account
+    </a>
+    <a class="dropdown-item" href="/accounts/logout">
+      <i class="fas fa-sign-out-alt nav-icon"></i> Log Out
+    </a>
+  </nav>
+</li>
+
+
+</ul>
+
+
+
+  </div>
+</nav>
+
+      
+
+      
+      
+  <div id="react-root"></div>
+
+    </div>
+    
+<footer class="container-fluid">
+</footer>
+
+    
+  <script> window.__INITIAL_SETUP_COMPLETE__ = true; </script>
+  <script src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
+  <script src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

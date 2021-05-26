@@ -1,0 +1,106 @@
+/*
+  Important
+*/
+/* TODO: Migrate the code in this file to:
+         - `ManageAccount.module.css`
+         - `styles/…` (for "global" styles)
+*/
+
+/* FP-546: Consider migrating these styles out of this file */
+.btn-link {
+  border: 0;
+  vertical-align: baseline;
+}
+
+/*
+  Components
+*/
+// Tables
+.manage-account-table {
+  font-size: 0.875rem; /* 14px (approved deviation from design) */
+  table-layout: fixed;
+  line-height: 2.3rem;
+  td,
+  th {
+    padding: 0;
+    width: 50%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    span {
+      margin-left: 1rem;
+    }
+  }
+  th {
+    font-weight: normal;
+    color: #707070;
+  }
+  td {
+    font-weight: bold;
+    color: #484848;
+  }
+  th.research-bio {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  td.research-bio {
+    padding-top: 0.5rem;
+    width: 100%;
+    color: #707070;
+    font-weight: normal;
+    line-height: 16px;
+    white-space: normal;
+    overflow: visible;
+  }
+}
+/* Overwrite Bootstrap */
+.manage-account-table.table {
+  margin-bottom: 0;
+}
+  /* Override striped bootstrap table */
+  .table-striped > tbody {
+    tr:nth-child(even) {
+      background-color: rgba(198, 198, 198, 0.1);
+    }
+    tr:nth-child(odd) {
+      background-color: white;
+    }
+  }
+
+// Buttons and Forms
+.manage-account-submit-button {
+  display: flex;
+  width: fit-content;
+  border-radius: 0;
+  font: bold 12px Roboto, sans-serif;
+  padding: 0.5rem 1rem;
+  border: 0 !important; /* override `.workbench-content .btn-secondary` */
+  background-color: #9d85ef !important; /* override `.workbench-content .btn-secondary` */
+  color: white !important; /* override `.workbench-content .btn-secondary` */
+}
+
+.modal-body {
+  /* NOTE: Applies globally so MAY be appropriate for modal component styles */
+  /* SEE: client/src/styles/components/bootstrap.modal.css */
+  font-size: 14px;
+}
+.manage-account-modal .modal-body {
+  .btn-link {
+    padding: 0;
+  }
+  .manage-account-submit-button {
+    margin-left: auto;
+  }
+}
+
+.form-button {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+}
+.license-button {
+  background-color: transparent !important;
+  font-weight: bold;
+}

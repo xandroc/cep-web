@@ -1,0 +1,15 @@
+export const DASHBOARD = '/dashboard';
+export const TICKETS = '/tickets';
+export const DATA = '/data';
+export const ALLOCATIONS = '/allocations';
+export const APPLICATIONS = '/applications';
+export const PUBLICATIONS = '/publications';
+export const HISTORY = '/history';
+export const JOBS = '/jobs';
+export const UI = '/ui-patterns';
+export const WORKBENCH = '/workbench';
+export const USER_GUIDE = '/user-guide';
+export const ONBOARDING = '/onboarding';
+export const ONBOARDINGADMIN = '/onboarding/admin';
+export const ACCOUNT = '/account';
+export const SEARCH = '/workbench/search';

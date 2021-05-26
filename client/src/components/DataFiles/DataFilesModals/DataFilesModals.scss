@@ -1,0 +1,52 @@
+.dataFilesModalColHeader {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.dataFilesModal {
+    color: #484848;
+    padding: 20px;
+    .h-100 {
+        padding: 0 10px 0 10px;
+    }
+    .breadcrumbs {
+      font-size: 12px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #707070;
+    }
+    .filesListing {
+      flex-grow: 1;
+      outline: 1px solid #707070;
+      overflow-y: auto;
+    }
+    .tr-header {
+        border-bottom-color: #C6C6C6;
+    }
+
+    /* Overrides bootstrap button */
+    /* FAQ: Table cell content should be 14px so do not override cell buttons */
+    /* FAQ: The [role="cell"] matches fake <div> cells and real <td> cells */
+    /* WARNING: A <td> cell need not have [role], but this now expects it */
+    .btn:not([role="cell"]) {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .flex-column {
+      height: 100%;
+    }
+
+    /* Matches layout of other data files listings */
+    .InfiniteScrollTable.projects-listing {
+      tr > *:first-child { padding-left: 15px; }
+      tr > *:last-child { padding-right: 15px; }
+      th { height: 25px; }
+      td { height: 45px; }
+    }
+}
+
+/* Quick port of inline style to stylesheet */
+.dataFilesValidationMessage {
+  padding-top: 10px;
+}

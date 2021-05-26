@@ -1,0 +1,115 @@
+$core-portal-color-primary: #9d85ef;
+
+.data-files-sidebar {
+  --horizontal-buffer: var(--global-space--section-left);
+  /* FAQ: Design is inconsistent across sections, but averages about `10.5px` */
+  --vertical-buffer: 0.75rem; /* ~12px (avg. 10.5px design * 1.2 design-to-app ratio */
+
+  --min-width: 200px;
+
+  margin-left: calc(var(--horizontal-buffer) * -1);
+  border-right: 1px solid rgba(112, 112, 112, 0.25);
+
+  padding-top: var(--vertical-buffer);
+}
+
+.data-files-sidebar .nav-link {
+  min-width: var(--min-width);
+
+  padding-left: var(--horizontal-buffer);
+  color: #707070;
+}
+
+.data-files-sidebar .nav-link.active {
+  background: rgba($core-portal-color-primary, 0.25);
+}
+
+.data-files-sidebar .nav-text {
+  padding-left: 16px;
+  font-size: 0.75rem; /* 12px (10px design * 1.2 design-to-app ratio) */
+  font-weight: 500;
+}
+
+.data-files-btn {
+  background-color: #9d85ef;
+  border-color: #9d85ef;
+  border-radius: 0;
+}
+
+.data-files-btn-cancel {
+  border-radius: 0;
+}
+
+#add-button-wrapper {
+  padding-left: var(--horizontal-buffer);
+}
+#data-files-add {
+  width: 140px;
+}
+
+.data-files-nav {
+  padding-top: 20px;
+}
+
+/* HACK: Quick solution to prevent styles from cascading into header dropdown */
+.data-files-sidebar {
+  .dropdown-menu {
+    border-color: $core-portal-color-primary;
+    border-radius: 0;
+    margin-top: 11px;
+    padding: 0;
+    width: 200px;
+    vertical-align: top;
+  }
+  .dropdown-menu::before {
+    position: absolute;
+    top: -10px;
+    left: 65px;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $core-portal-color-primary;
+    border-left: 10px solid transparent;
+    content: '';
+  }
+  .dropdown-menu::after {
+    position: absolute;
+    top: -9px;
+    left: 66px;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #ffffff;
+    border-left: 9px solid transparent;
+    content: '';
+  }
+
+  .dropdown-item {
+    padding: 10px 6px;
+    color: #707070;
+    font-size: 14px;
+    i {
+        padding-right: 19px;
+        font-size: 20px;
+        vertical-align: middle;
+    }
+    &:hover {
+      color: #707070;
+    }
+  }
+  .dropdown-item:focus,
+  .dropdown-item:hover {
+    background-color: #E6E0FB;
+  }
+}
+
+.complex-dropdown-item {
+  border-top: 1px solid #707070;
+  display: flex;
+}
+
+.multiline-menu-item-wrapper {
+  display: inline-block;
+  padding-left: 5px;
+  line-height: 1.1em;
+  small {
+    display: block;
+    color: #484848;
+  }
+}

@@ -1,0 +1,130 @@
+/* Base */
+
+.root {
+  /* FAQ: No styles necessary, but defining class to avoid build error */
+}
+
+
+
+
+
+/* Debug */
+/* FAQ: To color-code panels, ucncomment the code in this section */
+
+/* Color-code panels to easily track movement of multiple panels */
+/*
+.root::before          { background-color: tomato; }
+.root > *:nth-child(1) { background-color: orchid; }
+.root > *:nth-child(2) { background-color: dodgerblue; }
+.root > *:nth-child(3) { background-color: yellow; }
+.root > *:nth-child(4) { background-color: mediumseagreen; }
+.root::after           { background-color: gray; }
+*/
+
+
+
+
+
+/* Has Sidebar */
+
+/* CAVEAT: No sidebar styles provided (until a <SectionSidebar> exists) */
+.has-sidebar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+
+
+
+/* 1 Column */
+
+.one-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+
+
+
+
+/* 2 Columns */
+
+
+
+/* Always */
+.two-column,
+.multi-column {
+  --vertical-buffer: 2.5rem; /* 40px (~32px design * 1.2 design-to-app ratio) (rounded) */
+  --column-gap: calc(var(--global-space--section-left) * 2);
+}
+.two-column > *,
+.multi-column > * {
+  break-inside: avoid;
+}
+
+/* Narrow */
+@media only screen and (max-width: 991px) {
+  .two-column > *,
+  .multi-column > * {
+    margin-bottom: var(--vertical-buffer);
+  }
+}
+
+/* Wide */
+@media only screen and (min-width: 992px) {
+  .two-column,
+  .multi-column {
+    column-gap: var(--column-gap);
+    column-rule: 1px solid rgba(112, 112, 112, 0.25);
+    column-fill: auto;
+  }
+  .two-column > *:not(:last-child),
+  .multi-column > *:not(:last-child) {
+    margin-bottom: var(--vertical-buffer);
+  }
+
+  .with-unequal-columns {
+    /* To make both col's 60% of intrinsic width (small col is resized later) */
+    --column-width--container: 120%;
+
+    /* To make large column 60% of `.panels` intrinsic width */
+    --column-width--large: 100%;
+
+    /* To make small column ⪅40% of `.panels` intrinsic width */
+    /* FAQ: The percentage and divisor are magic numbers */
+    --column-width--small: calc(
+      ( 66.67% - var(--global-space--section-right) )
+      - ( var(--column-gap) / 4 )
+    );
+  }
+  /* To hide the expected overflow from `.panels` expanded width */
+  :global(.c-section--has-content-layout-with-unequal-columns) {
+    overflow-x: hidden;
+  }
+}
+
+/* Tall & Wide */
+@media only screen and (min-height: 634px) and (min-width: 992px) {
+  .two-column,
+  .multi-column {
+    column-count: 2;
+  }
+}
+
+/* Short & Wide */
+@media only screen and (max-height: 633px) and (min-width: 992px) and (max-width: 1199px) {
+  .two-column {
+    column-count: 2;
+  }
+}
+@media only screen and (max-height: 633px) and (min-width: 1200px) {
+  .two-column {
+    column-count: 2;
+  }
+  .multi-column {
+    column-count: 3;
+  }
+}

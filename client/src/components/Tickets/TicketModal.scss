@@ -1,0 +1,108 @@
+.ticket-detailed-view-container,
+.ticket-detailed-view-container .row {
+  height: 100%;
+}
+
+.ticket-history {
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.ticket-history-header {
+  padding-right: 1em;
+}
+
+.ticket-reply-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-reply-group {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-reply-text-area {
+  min-height: 5em;
+}
+
+.ticket-reply-button {
+  text-align: right;
+}
+
+.ticket-model-content {
+
+  color: #484848;
+  font-size: 0.75rem;
+  height: 90vh;
+  min-height: 535px;
+
+  /* alter bootstrap size to match font-size for rest of ticket forms */
+  .col-form-label-sm {
+    font-size: 0.75rem;
+  }
+
+  .card-header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .card-body {
+    white-space: pre-wrap;
+  }
+
+  .ticket-responder {
+    color: #9d85ef;
+  }
+
+  /* FP-426: Avoid all these styles by using `LoadingSpinner` */
+  .ticket-history-loading-icon {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-primary {
+    border: none;
+    background-color: #9d85ef;
+    min-width: 100px;
+    min-height: 25px;
+    font-size: 0.75rem;
+  }
+
+  /* Override Bootstrap `.form-text` (being used in _common/Form/FormField.js), because we need the field text to be the
+  same size as the field label */
+  .form-text {
+    font-size: 0.75rem;
+  }
+
+  /* ticket header specific styles */
+  .ticket-id {
+    color: #707070;
+  }
+  /* Visual separation for subject preceded by ID */
+  .ticket-id + .ticket-subject::before {
+    content: '|';
+    display: inline-block;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+  }
+
+  /* make bootstrap dialog wider */
+  @media (min-width: 1200px) {
+    .modal-dialog {
+      max-width: 1000px;
+    }
+  }
+
+  .icon-action {
+    font-size: 1.4em;
+    display: flex;
+  }
+}

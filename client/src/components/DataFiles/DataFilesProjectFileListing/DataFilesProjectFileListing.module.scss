@@ -1,0 +1,46 @@
+.root {
+  /* As a flex child */
+  flex-grow: 1;
+
+  /* WARNING: Mimicked on: History, Allocation, DataFiles, DataFilesProjectsList, DataFilesProjectFileListing, PublicData */
+  padding-top: 1.75rem; /* ~28px (22.5px * design * 1.2 design-to-app ratio) */
+  padding-left: 1.5em; /* ~24px (20px * design * 1.2 design-to-app ratio) */
+}
+
+/* NOTE: Mimicked on: DataFiles, DataFilesProjectsList, DataFilesProjectFileListing */
+.root-placeholder {
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  padding-top: 0.5em;
+  margin-bottom: 1em; /* padding would only be effectual within scrollarea */
+  color: #707070;
+
+  /* FAQ: `14px` is part of normalization of "table" font sizes */
+  font-size: 0.875rem; /* 14px (assumed deviation from design) */
+
+  max-height: 10%;
+  overflow-y: scroll;
+
+  border-top: var(--global-border-width--normal) solid var(--global-color-primary--dark);
+}
+
+.controls {
+  display: flex;
+  align-items: flex-start;
+}
+
+.edit {
+  padding: 0;
+}
+
+.separator {
+  font-weight: bold;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}

@@ -1,0 +1,19 @@
+/* Block */
+
+.container {
+  /* FAQ: Only defined so "Elements: Tags" can be styled */
+}
+
+
+/* Elements */
+
+.list-item {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Elements: Tags */
+
+.container dt > small {
+  display: block;
+}

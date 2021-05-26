@@ -1,0 +1,104 @@
+/* DO NOT ADD STYLES HERE; ONLY IMPORT OTHER STYLESHEETS */
+
+/* NOTE: This file exists so <tacc-search-bar> can use CSS vars from Portal */
+
+/* TODO: Find a better solution */
+
+/* PORT: Migrate `:root` vars into `:host` so custom element can access them */
+
+/* FAQ: Styles within a custom element can not access the `:root` */
+
+/* SETTINGS */
+
+/* NOTE: These errors are expected ONLY when freeezing variables—
+
+  ```
+  […] --global-color-warning--normal is undefined and used without a fallback
+  […] --global-color-warning--weak is undefined and used without a fallback
+  ```
+
+  —because the definition of those variables is incomplete before freezing.
+
+  P.S. In raw CSS, the values dynamically cascade at run time after definition.
+*/
+
+/* WARNING: This file is copied from Portal repo */
+
+/* TODO: Share source code between CMS, Portal, & User Guide */
+
+/* SEE: https://github.com/TACC/Frontera-Portal/blob/master/client/src/styles/settings/color.css */
+
+/* SETTINGS: Color */
+
+/* Usage: `var(--global-color-primary--normal)` */
+
+/* SEE: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+
+/* Modifers
+    --normal:   standard color
+    --alt:      alternate color
+    --weak:     transparent instance
+    --(…)light: lighter value
+    --(…)dark:  darker value
+*/
+
+:root {
+    /* Primary (Text, Layout) */
+    --global-color-primary--xx-light: #FFFFFF;
+    --global-color-primary--x-light: #F4F4F4;
+    --global-color-primary--light: #C6C6C6;
+    --global-color-primary--normal: #AFAFAF;
+    --global-color-primary--dark: #707070;
+    --global-color-primary--x-dark: #484848;
+    --global-color-primary--xx-dark: #222222; /* Unused. For header background, which is styled by CMS styles */
+
+    /* Distinct Hues */
+    --global-color-accent--normal: #9D85EF;
+        --global-color-accent--weak: #9D85EF20;
+        --global-color-accent--light: #dfdaf5;
+        --global-color-accent--x-light: #D2CCE7;
+    --global-color-info--normal: #484848;
+        --global-color-info--weak: #F4F4F4;
+    --global-color-success--normal: #43D130;
+        --global-color-success--weak: #43D13020;
+        --global-color-success--alt: undefined;
+        --global-color-success--alt-weak: undefined;
+    --global-color-warning--normal: #C7CE1D;
+        --global-color-warning--weak: #C7CE1D20;
+        --global-color-warning--alt: #9D85EF;
+        --global-color-warning--alt-weak: #9D85EF20;
+    --global-color-danger--normal: #EB6E6E;
+        --global-color-danger--weak: #EB6E6E20;
+}
+
+/* WARNING: This file is copied from Portal repo */
+
+/* TODO: Share source code between CMS, Portal, & User Guide */
+
+/* SEE: https://github.com/TACC/Frontera-Portal/blob/master/client/src/styles/settings/border.css */
+
+/* SETTINGS: Border */
+
+/* Usage: `var(--global-border-width--normal)` */
+
+/* SEE: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+
+:root {
+    --global-border-width--normal: 1px;
+    --global-border--normal: 1px solid #AFAFAF;
+
+    --global-border-width--thick: 2px;
+    --global-border--thick: 2px solid #AFAFAF;
+
+    --global-border-width--x-thick: 3px;
+    --global-border--x-thick: 3px solid #AFAFAF;
+}
+
+[part="button"] {
+  --global-color-primary--x-dark: #484848;
+  --global-color-primary--normal: #AFAFAF;
+}
+
+[part="input"] {
+  --global-border--normal: 1px solid #AFAFAF;
+}
