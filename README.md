@@ -2,5 +2,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Entrada Workbench
 
-npm install && npm run dev
+`cd client && npm install && npm run dev`
 
